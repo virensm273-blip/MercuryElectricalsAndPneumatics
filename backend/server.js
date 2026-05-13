@@ -5,12 +5,39 @@ const path = require('path');
 const jwt = require('jsonwebtoken');
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 const DB_PATH = path.join(__dirname, 'data', 'db.json');
 const JWT_SECRET = 'mercury-super-secret-key-in-production-change-this';
 
 app.use(cors());
 app.use(express.json());
+
+// Path to static frontend files
+let STATIC_FRONTEND = path.join(__dirname, '../frontend');
+
+// Diagnostic: Log environment and paths
+console.log('--- STATIC DEPLOYMENT DIAGNOSTICS ---');
+console.log('Current Directory (cwd):', process.cwd());
+console.log('Server Directory (__dirname):', __dirname);
+
+try {
+  const parentFiles = require('fs').readdirSync(path.join(__dirname, '..'));
+  console.log('Parent Directory Contents:', parentFiles);
+  
+  // Try to find the frontend folder case-insensitively
+  const frontendFolder = parentFiles.find(f => f.toLowerCase() === 'frontend');
+  if (frontendFolder) {
+    STATIC_FRONTEND = path.join(__dirname, '..', frontendFolder);
+    console.log('Found frontend folder at:', STATIC_FRONTEND);
+  }
+} catch (e) {
+  console.log('Error reading parent directory:', e.message);
+}
+
+console.log('Serving static frontend from:', STATIC_FRONTEND);
+
+// Serve static files from the frontend directory
+app.use(express.static(STATIC_FRONTEND));
 
 // Helper functions
 async function readDB() {
@@ -268,9 +295,38 @@ app.post('/api/activity', authenticateToken, async (req, res) => {
   }
 });
 
-// Start Server after initializing DB
-initializeDB().then(() => {
-  app.listen(PORT, () => {
-    console.log(`Mercury server running on http://localhost:${PORT}`);
+// SPA Fallback - Serve index.html for any remaining routes
+app.use((req, res) => {
+  const indexPath = path.join(STATIC_FRONTEND, 'index.html');
+  console.log('Attempting to serve index.html from:', indexPath);
+  
+  res.sendFile(indexPath, (err) => {
+    if (err) {
+      console.error('FAILED to serve index.html:', err.message);
+      res.status(404).send(`
+        <h1>Mercury Frontend Error</h1>
+        <p>Could not find index.html at: ${indexPath}</p>
+        <p>Current Directory: ${process.cwd()}</p>
+        <p>Please check your file structure on Render.</p>
+      `);
+    }
   });
+});
+
+// Start Server
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`
+==================================================
+  MERCURY INDUSTRIAL BUSINESS OS - SERVER READY
+==================================================
+  Status: Production Stable
+  Port: ${PORT}
+  Host: 0.0.0.0
+  Time: ${new Date().toISOString()}
+  Endpoint: http://localhost:${PORT}
+==================================================
+  `);
+  
+  // Initialize DB after server starts
+  initializeDB().catch(err => console.error('Startup DB Init Failed:', err));
 });

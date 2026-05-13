@@ -5,7 +5,7 @@ import { ArrowLeft, Tag, ShieldCheck, Box, MessageCircle, Info, HardDrive, Cpu }
 
 import { safeGet, STORAGE_KEYS } from '../utils/storage';
 
-const API_BASE = 'http://localhost:5000/api';
+const API_BASE = '/api';
 
 const ProductDetails = () => {
   const { id } = useParams();

@@ -43,14 +43,14 @@
       "category": "PLC Components",
       "brand": "Siemens",
       "price": 24500,
-      "stock": 5,
-      "inStock": true,
+      "stock": 0,
+      "inStock": false,
       "specs": "Advanced PLC controller for industrial automation.",
       "tags": [
         "Premium"
       ],
       "supplier": "Siemens Industrial",
-      "updatedAt": "2026-05-12T16:10:00Z"
+      "updatedAt": "2026-05-13T10:34:19.150Z"
     },
     {
       "id": "4",

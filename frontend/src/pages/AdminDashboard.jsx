@@ -81,10 +81,10 @@ const AdminDashboard = () => {
       try {
         const isEdit = !!item.id && !isDelete;
         const url = isDelete 
-          ? `http://localhost:5000/api/products/${item.id}` 
+          ? `/api/products/${item.id}` 
           : isEdit 
-            ? `http://localhost:5000/api/products/${item.id}` 
-            : `http://localhost:5000/api/products`;
+            ? `/api/products/${item.id}` 
+            : `/api/products`;
         
         const method = isDelete ? 'DELETE' : isEdit ? 'PUT' : 'POST';
         
@@ -110,7 +110,7 @@ const AdminDashboard = () => {
   const handleRefreshFromServer = async () => {
     setIsProcessing(true);
     try {
-      const response = await fetch('http://localhost:5000/api/products');
+      const response = await fetch('/api/products');
       if (response.ok) {
         const data = await response.json();
         safeSet(STORAGE_KEYS.PRODUCTS, data);

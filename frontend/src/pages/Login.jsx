@@ -5,7 +5,7 @@ import { Lock, ShieldCheck, User, KeyRound } from 'lucide-react';
 
 import { STORAGE_KEYS } from '../utils/storage';
 
-const API_BASE = 'http://localhost:5000/api';
+const API_BASE = '/api';
 
 const Login = () => {
   const [username, setUsername] = useState('');
