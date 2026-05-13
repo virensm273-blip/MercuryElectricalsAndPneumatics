@@ -1,0 +1,135 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Pneumatic Valve PV-101",
+      "model": "PV-101",
+      "category": "Pneumatic",
+      "brand": "Festo",
+      "price": 1500,
+      "stock": 15,
+      "inStock": true,
+      "specs": "Premium valves component. High-performance industrial grade asset.",
+      "tags": [
+        "Premium",
+        "New"
+      ],
+      "supplier": "Mercury Direct",
+      "updatedAt": "2026-05-12T16:45:12.372Z",
+      "subcategory": "Valves",
+      "images": [],
+      "image": ""
+    },
+    {
+      "id": "2",
+      "name": "Compact Solenoid Valve",
+      "model": "SY3120-5LZD-M5",
+      "category": "Pneumatic Valves",
+      "brand": "SMC",
+      "price": 3200,
+      "stock": 25,
+      "inStock": true,
+      "specs": "Space-saving solenoid valve. Ideal for compact manifolds.",
+      "tags": [
+        "Fast Moving"
+      ],
+      "supplier": "Mercury Direct",
+      "updatedAt": "2026-05-12T16:10:00Z"
+    },
+    {
+      "id": "3",
+      "name": "SIMATIC S7-1200 CPU",
+      "model": "CPU 1214C DC/DC/DC",
+      "category": "PLC Components",
+      "brand": "Siemens",
+      "price": 24500,
+      "stock": 5,
+      "inStock": true,
+      "specs": "Advanced PLC controller for industrial automation.",
+      "tags": [
+        "Premium"
+      ],
+      "supplier": "Siemens Industrial",
+      "updatedAt": "2026-05-12T16:10:00Z"
+    },
+    {
+      "id": "4",
+      "name": "ISO Standard Cylinder",
+      "model": "DSBC-32-100-PPVA-N3",
+      "category": "Cylinders",
+      "brand": "Festo",
+      "price": 7500,
+      "stock": 8,
+      "inStock": true,
+      "specs": "Reliable pneumatic cylinder for standard industrial tasks.",
+      "tags": [
+        "New"
+      ],
+      "supplier": "Mercury Direct",
+      "updatedAt": "2026-05-12T16:10:00Z"
+    },
+    {
+      "id": "5",
+      "name": "Inductive Proximity Sensor",
+      "model": "LJ12A3-4-Z/BX",
+      "category": "Sensors",
+      "brand": "Omron",
+      "price": 850,
+      "stock": 100,
+      "inStock": true,
+      "specs": "High-precision proximity detection.",
+      "tags": [
+        "Fast Moving"
+      ],
+      "supplier": "Omron Components",
+      "updatedAt": "2026-05-12T16:10:00Z"
+    },
+    {
+      "id": "6",
+      "name": "VFD Variable Frequency Drive",
+      "model": "ATV312HU15N4",
+      "category": "Motors",
+      "brand": "Schneider Electric",
+      "price": 18500,
+      "stock": 7,
+      "inStock": true,
+      "specs": "High-efficiency motor speed controller.",
+      "tags": [
+        "Premium"
+      ],
+      "supplier": "Schneider Global",
+      "updatedAt": "2026-05-12T16:10:00Z"
+    }
+  ],
+  "categories": [
+    "Pneumatic Valves",
+    "Cylinders",
+    "Sensors",
+    "PLC Components",
+    "Motors",
+    "Compressors",
+    "Solenoid Valves",
+    "Pneumatic Fittings"
+  ],
+  "brands": [
+    "Festo",
+    "SMC",
+    "Airtac",
+    "Siemens",
+    "Omron",
+    "Schneider Electric",
+    "Bosch",
+    "Janatics"
+  ],
+  "logs": [
+    {
+      "id": 1715526600000,
+      "timestamp": "2026-05-12T16:10:00Z",
+      "action": "RESTORE",
+      "details": {
+        "name": "System Database Restored"
+      },
+      "user": "Admin"
+    }
+  ]
+}

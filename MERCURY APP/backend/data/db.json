@@ -1,0 +1,371 @@
+{
+  "products": [
+    {
+      "name": "Pneumatic Valve PV-101",
+      "model": "PV-101",
+      "category": "Pneumatic",
+      "subcategory": "Valves",
+      "brand": "Festo",
+      "price": 1200,
+      "stock": 15,
+      "id": "1",
+      "inStock": true,
+      "specs": "Premium valves component. Designed for heavy industrial applications."
+    },
+    {
+      "name": "Pneumatic Valve PV-102",
+      "model": "PV-102",
+      "category": "Pneumatic",
+      "subcategory": "Valves",
+      "brand": "SMC",
+      "price": 1350,
+      "stock": 10,
+      "id": "2",
+      "inStock": true,
+      "specs": "Premium valves component. Designed for heavy industrial applications."
+    },
+    {
+      "name": "Pneumatic Valve PV-103",
+      "model": "PV-103",
+      "category": "Pneumatic",
+      "subcategory": "Valves",
+      "brand": "Airtac",
+      "price": 1100,
+      "stock": 0,
+      "id": "3",
+      "inStock": false,
+      "specs": "Premium valves component. Designed for heavy industrial applications."
+    },
+    {
+      "name": "Air Cylinder CY-201",
+      "model": "CY-201",
+      "category": "Pneumatic",
+      "subcategory": "Cylinders",
+      "brand": "Festo",
+      "price": 2500,
+      "stock": 8,
+      "id": "4",
+      "inStock": true,
+      "specs": "Premium cylinders component. Designed for heavy industrial applications."
+    },
+    {
+      "name": "Air Cylinder CY-202",
+      "model": "CY-202",
+      "category": "Pneumatic",
+      "subcategory": "Cylinders",
+      "brand": "SMC",
+      "price": 2700,
+      "stock": 5,
+      "id": "5",
+      "inStock": true,
+      "specs": "Premium cylinders component. Designed for heavy industrial applications."
+    },
+    {
+      "name": "Air Cylinder CY-203",
+      "model": "CY-203",
+      "category": "Pneumatic",
+      "subcategory": "Cylinders",
+      "brand": "Airtac",
+      "price": 2600,
+      "stock": 0,
+      "id": "6",
+      "inStock": false,
+      "specs": "Premium cylinders component. Designed for heavy industrial applications."
+    },
+    {
+      "name": "Pneumatic Fitting FT-301",
+      "model": "FT-301",
+      "category": "Pneumatic",
+      "subcategory": "Fittings",
+      "brand": "Festo",
+      "price": 300,
+      "stock": 50,
+      "id": "7",
+      "inStock": true,
+      "specs": "Premium fittings component. Designed for heavy industrial applications."
+    },
+    {
+      "name": "Pneumatic Fitting FT-302",
+      "model": "FT-302",
+      "category": "Pneumatic",
+      "subcategory": "Fittings",
+      "brand": "SMC",
+      "price": 350,
+      "stock": 40,
+      "id": "8",
+      "inStock": true,
+      "specs": "Premium fittings component. Designed for heavy industrial applications."
+    },
+    {
+      "name": "Pneumatic Fitting FT-303",
+      "model": "FT-303",
+      "category": "Pneumatic",
+      "subcategory": "Fittings",
+      "brand": "Airtac",
+      "price": 280,
+      "stock": 0,
+      "id": "9",
+      "inStock": false,
+      "specs": "Premium fittings component. Designed for heavy industrial applications."
+    },
+    {
+      "name": "PU Tube TB-401",
+      "model": "TB-401",
+      "category": "Pneumatic",
+      "subcategory": "Tubes",
+      "brand": "Festo",
+      "price": 900,
+      "stock": 20,
+      "id": "10",
+      "inStock": true,
+      "specs": "Premium tubes component. Designed for heavy industrial applications."
+    },
+    {
+      "name": "PU Tube TB-402",
+      "model": "TB-402",
+      "category": "Pneumatic",
+      "subcategory": "Tubes",
+      "brand": "SMC",
+      "price": 950,
+      "stock": 18,
+      "id": "11",
+      "inStock": true,
+      "specs": "Premium tubes component. Designed for heavy industrial applications."
+    },
+    {
+      "name": "PU Tube TB-403",
+      "model": "TB-403",
+      "category": "Pneumatic",
+      "subcategory": "Tubes",
+      "brand": "Airtac",
+      "price": 880,
+      "stock": 0,
+      "id": "12",
+      "inStock": false,
+      "specs": "Premium tubes component. Designed for heavy industrial applications."
+    },
+    {
+      "name": "Air Filter AF-501",
+      "model": "AF-501",
+      "category": "Pneumatic",
+      "subcategory": "Air Preparation Units",
+      "brand": "Festo",
+      "price": 1800,
+      "stock": 12,
+      "id": "13",
+      "inStock": true,
+      "specs": "Premium air preparation units component. Designed for heavy industrial applications."
+    },
+    {
+      "name": "Air Filter AF-502",
+      "model": "AF-502",
+      "category": "Pneumatic",
+      "subcategory": "Air Preparation Units",
+      "brand": "SMC",
+      "price": 1900,
+      "stock": 10,
+      "id": "14",
+      "inStock": true,
+      "specs": "Premium air preparation units component. Designed for heavy industrial applications."
+    },
+    {
+      "name": "Air Filter AF-503",
+      "model": "AF-503",
+      "category": "Pneumatic",
+      "subcategory": "Air Preparation Units",
+      "brand": "Airtac",
+      "price": 1750,
+      "stock": 0,
+      "id": "15",
+      "inStock": false,
+      "specs": "Premium air preparation units component. Designed for heavy industrial applications."
+    },
+    {
+      "name": "Solenoid Valve SV-601",
+      "model": "SV-601",
+      "category": "Pneumatic",
+      "subcategory": "Valves",
+      "brand": "Festo",
+      "price": 2200,
+      "stock": 7,
+      "id": "16",
+      "inStock": true,
+      "specs": "Premium valves component. Designed for heavy industrial applications."
+    },
+    {
+      "name": "Solenoid Valve SV-602",
+      "model": "SV-602",
+      "category": "Pneumatic",
+      "subcategory": "Valves",
+      "brand": "SMC",
+      "price": 2300,
+      "stock": 6,
+      "id": "17",
+      "inStock": true,
+      "specs": "Premium valves component. Designed for heavy industrial applications."
+    },
+    {
+      "name": "Solenoid Valve SV-603",
+      "model": "SV-603",
+      "category": "Pneumatic",
+      "subcategory": "Valves",
+      "brand": "Airtac",
+      "price": 2100,
+      "stock": 0,
+      "id": "18",
+      "inStock": false,
+      "specs": "Premium valves component. Designed for heavy industrial applications."
+    },
+    {
+      "name": "Mini Cylinder MC-701",
+      "model": "MC-701",
+      "category": "Pneumatic",
+      "subcategory": "Cylinders",
+      "brand": "Festo",
+      "price": 1500,
+      "stock": 9,
+      "id": "19",
+      "inStock": true,
+      "specs": "Premium cylinders component. Designed for heavy industrial applications."
+    },
+    {
+      "name": "Mini Cylinder MC-702",
+      "model": "MC-702",
+      "category": "Pneumatic",
+      "subcategory": "Cylinders",
+      "brand": "SMC",
+      "price": 1600,
+      "stock": 7,
+      "id": "20",
+      "inStock": true,
+      "specs": "Premium cylinders component. Designed for heavy industrial applications."
+    },
+    {
+      "name": "Mini Cylinder MC-703",
+      "model": "MC-703",
+      "category": "Pneumatic",
+      "subcategory": "Cylinders",
+      "brand": "Airtac",
+      "price": 1550,
+      "stock": 0,
+      "id": "21",
+      "inStock": false,
+      "specs": "Premium cylinders component. Designed for heavy industrial applications."
+    },
+    {
+      "name": "Quick Coupler QC-801",
+      "model": "QC-801",
+      "category": "Pneumatic",
+      "subcategory": "Fittings",
+      "brand": "Festo",
+      "price": 500,
+      "stock": 30,
+      "id": "22",
+      "inStock": true,
+      "specs": "Premium fittings component. Designed for heavy industrial applications."
+    },
+    {
+      "name": "Quick Coupler QC-802",
+      "model": "QC-802",
+      "category": "Pneumatic",
+      "subcategory": "Fittings",
+      "brand": "SMC",
+      "price": 550,
+      "stock": 25,
+      "id": "23",
+      "inStock": true,
+      "specs": "Premium fittings component. Designed for heavy industrial applications."
+    },
+    {
+      "name": "Quick Coupler QC-803",
+      "model": "QC-803",
+      "category": "Pneumatic",
+      "subcategory": "Fittings",
+      "brand": "Airtac",
+      "price": 520,
+      "stock": 0,
+      "id": "24",
+      "inStock": false,
+      "specs": "Premium fittings component. Designed for heavy industrial applications."
+    },
+    {
+      "name": "FRL Unit FRL-901",
+      "model": "FRL-901",
+      "category": "Pneumatic",
+      "subcategory": "Air Preparation Units",
+      "brand": "Festo",
+      "price": 3200,
+      "stock": 6,
+      "id": "25",
+      "inStock": true,
+      "specs": "Premium air preparation units component. Designed for heavy industrial applications."
+    },
+    {
+      "name": "FRL Unit FRL-902",
+      "model": "FRL-902",
+      "category": "Pneumatic",
+      "subcategory": "Air Preparation Units",
+      "brand": "SMC",
+      "price": 3400,
+      "stock": 5,
+      "id": "26",
+      "inStock": true,
+      "specs": "Premium air preparation units component. Designed for heavy industrial applications."
+    },
+    {
+      "name": "FRL Unit FRL-903",
+      "model": "FRL-903",
+      "category": "Pneumatic",
+      "subcategory": "Air Preparation Units",
+      "brand": "Airtac",
+      "price": 3100,
+      "stock": 0,
+      "id": "27",
+      "inStock": false,
+      "specs": "Premium air preparation units component. Designed for heavy industrial applications."
+    }
+  ],
+  "categories": [
+    "Pneumatic",
+    "Electrical",
+    "Tools",
+    "Accessories"
+  ],
+  "subcategories": [
+    {
+      "id": "s1",
+      "name": "Valves",
+      "category": "Pneumatic"
+    },
+    {
+      "id": "s2",
+      "name": "Cylinders",
+      "category": "Pneumatic"
+    },
+    {
+      "id": "s3",
+      "name": "Fittings",
+      "category": "Pneumatic"
+    },
+    {
+      "id": "s4",
+      "name": "Tubes",
+      "category": "Pneumatic"
+    },
+    {
+      "id": "s5",
+      "name": "Air Preparation Units",
+      "category": "Pneumatic"
+    },
+    {
+      "id": "e1",
+      "name": "Switches",
+      "category": "Electrical"
+    }
+  ],
+  "brands": [
+    "Festo",
+    "SMC",
+    "Airtac"
+  ]
+}
