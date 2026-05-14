@@ -8,7 +8,6 @@ import Login from './pages/Login';
 import ProductDetails from './pages/ProductDetails';
 import Products from './pages/Products';
 import CompareProducts from './pages/CompareProducts';
-import MercuryAI from './components/MercuryAI';
 import { syncWithBackend, syncLogsWithBackend } from './utils/storage';
 
 const PrivateRoute = ({ children }) => {
@@ -90,7 +89,6 @@ function App() {
             />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
-          <MercuryAI />
         </main>
 
         {/* Global Toasts */}

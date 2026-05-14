@@ -12,7 +12,7 @@ const subcategories = [
   // Keep some electrical so app still has them
   { id: "e1", name: "Switches", category: "Electrical" }
 ];
-const brands = ["Brand A", "Brand B", "Brand C"];
+const brands = ["Brand A", "Brand B", "Brand C, Brand D"];
 
 const products = [];
 
@@ -23,7 +23,7 @@ const randomPrice = (min, max) => Math.floor(Math.random() * (max - min) + min);
 const pneuSubs = ["Valves", "Cylinders", "Fittings", "Tubes", "Air Preparation Units"];
 const features = ["High Flow", "Miniature", "Heavy Duty", "Standard", "Precision"];
 
-for(let i=1; i<=30; i++) {
+for (let i = 1; i <= 30; i++) {
   let sub = randomEl(pneuSubs);
   let brand = randomEl(brands);
   let isStock = Math.random() > 0.15; // 85% chance in stock
@@ -33,7 +33,7 @@ for(let i=1; i<=30; i++) {
   products.push({
     id: i.toString(),
     name: `${randomEl(features)} Pneumatic ${sub.slice(0, -1)}`,
-    model: `PNM-${brand.charAt(6)}-${Math.floor(Math.random()*9000)+1000}`,
+    model: `PNM-${brand.charAt(6)}-${Math.floor(Math.random() * 9000) + 1000}`,
     category: "Pneumatic",
     subcategory: sub,
     brand: brand,

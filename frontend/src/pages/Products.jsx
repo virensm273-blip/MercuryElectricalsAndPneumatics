@@ -4,7 +4,7 @@ import { Search, Filter, LayoutGrid, List, SlidersHorizontal, X, ArrowUpDown, Ta
 import ProductCard from '../components/ProductCard';
 import ProductDetailsModal from '../components/ProductDetailsModal';
 import ContactModal from '../components/ContactModal';
-import { safeGet, STORAGE_KEYS } from '../utils/storage';
+import { supabase } from '../lib/supabase';
 
 const ITEMS_PER_PAGE = 8;
 
@@ -38,31 +38,39 @@ const Products = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const loadLocalData = useCallback(() => {
+  const loadSupabaseData = useCallback(async () => {
     try {
-      const parsedProducts = safeGet(STORAGE_KEYS.PRODUCTS);
-      const cats = [...new Set(parsedProducts.map(p => p.category).filter(Boolean))];
-      const brands = [...new Set(parsedProducts.map(p => p.brand).filter(Boolean))];
+      setLoading(true);
+      const { data: parsedProducts, error } = await supabase
+        .from('products')
+        .select('*')
+        .order('created_at', { ascending: false });
+
+      if (error) throw error;
+      
+      const productsList = parsedProducts || [];
+      const cats = [...new Set(productsList.map(p => p.category).filter(Boolean))];
+      const brands = [...new Set(productsList.map(p => p.brand).filter(Boolean))];
       
       setData({
-        products: parsedProducts,
+        products: productsList,
         categories: cats,
         brands: brands
       });
       
-      if (parsedProducts.length > 0) {
-        const maxPrice = Math.max(...parsedProducts.map(p => Number(p.price) || 0), 0);
+      if (productsList.length > 0) {
+        const maxPrice = Math.max(...productsList.map(p => Number(p.price) || 0), 0);
         setPriceRange(prev => ({ ...prev, max: maxPrice }));
       }
     } catch (error) {
-      console.error("Failed to load products:", error);
+      console.error("Failed to load products from Supabase:", error);
     } finally {
       setLoading(false);
     }
   }, []);
 
   useEffect(() => {
-    loadLocalData();
+    loadSupabaseData();
 
     // Global Search Listener
     const handleGlobalSearch = (e) => {
@@ -72,7 +80,7 @@ const Products = () => {
     window.addEventListener('search_inventory', handleGlobalSearch);
     
     return () => window.removeEventListener('search_inventory', handleGlobalSearch);
-  }, [loadLocalData]);
+  }, [loadSupabaseData]);
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);

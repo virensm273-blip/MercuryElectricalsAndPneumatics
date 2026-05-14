@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { X, Box, Tag as TagIcon, HardDrive, ShoppingCart, Calendar, Share2, Truck, MessageCircle } from 'lucide-react';
+import { X, Box, Tag as TagIcon, HardDrive, ShoppingCart, Calendar, Share2, Truck, MessageCircle, LayoutGrid } from 'lucide-react';
 
-const ProductDetailsModal = ({ product, onClose, onInquire }) => {
+const ProductDetailsModal = ({ product, onClose, onInquire, onCompare }) => {
   const [activeImage, setActiveImage] = useState(product?.image || '');
   
   if (!product) return null;
@@ -94,10 +94,10 @@ const ProductDetailsModal = ({ product, onClose, onInquire }) => {
           }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '1rem' }}>
               <div style={{ flex: 1 }}>
-                <h2 className="font-poppins" style={{ fontSize: '1.5rem', marginBottom: '0.4rem', color: 'var(--text-primary)', fontWeight: '800', lineHeight: 1.2 }}>{product.name}</h2>
+                <h2 className="font-poppins" style={{ fontSize: '1.5rem', marginBottom: '0.4rem', color: 'var(--text-primary)', fontWeight: '800', lineHeight: 1.2 }}>{product.name || 'Unnamed Asset'}</h2>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', color: 'var(--text-muted)', fontSize: '0.75rem' }}>
-                  <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}><HardDrive size={14} color="var(--accent-blue)" /> {product.model}</span>
-                  <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}><TagIcon size={14} color="var(--accent-blue)" /> {product.brand}</span>
+                  <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}><HardDrive size={14} color="var(--accent-blue)" /> {product.model || 'N/A'}</span>
+                  <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}><TagIcon size={14} color="var(--accent-blue)" /> {product.brand || 'N/A'}</span>
                 </div>
               </div>
               <button className="btn-outline" onClick={onClose} style={{ borderRadius: '50%', padding: '0', width: '36px', height: '36px', minWidth: '36px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: 'none', background: 'rgba(255,255,255,0.05)' }}><X size={20} /></button>
@@ -106,25 +106,25 @@ const ProductDetailsModal = ({ product, onClose, onInquire }) => {
             <div style={{ padding: '1.25rem', background: 'rgba(255,255,255,0.02)', borderRadius: '14px', border: '1px solid var(--border-light)' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', flexWrap: 'wrap', gap: '0.75rem' }}>
                 <div>
-                  <div style={{ fontSize: '1.75rem', fontWeight: '800', color: 'var(--accent-green)' }}>₹{Number(product.price).toLocaleString()}</div>
+                  <div style={{ fontSize: '1.75rem', fontWeight: '800', color: 'var(--accent-green)' }}>₹{Number(product.price || 0).toLocaleString()}</div>
                   <div style={{ fontSize: '0.6rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Asset Valuation</div>
                 </div>
                 <div style={{ textAlign: 'right' }}>
-                  <span className={`stock-badge ${product.stock > 5 ? 'stock-high' : 'stock-low'}`} style={{ fontSize: '0.75rem', padding: '0.35rem 0.6rem' }}>
-                    {product.stock} Units
+                  <span className={`stock-badge ${(product.stock || 0) > 5 ? 'stock-high' : 'stock-low'}`} style={{ fontSize: '0.75rem', padding: '0.35rem 0.6rem' }}>
+                    {product.stock || 0} Units
                   </span>
                   <div style={{ fontSize: '0.6rem', color: 'var(--text-muted)', marginTop: '0.35rem' }}>WAREHOUSE COUNT</div>
                 </div>
               </div>
               <div className="progress-bar" style={{ height: '4px' }}>
-                <div className="progress-fill blue" style={{ width: `${Math.min((product.stock / 20) * 100, 100)}%` }}></div>
+                <div className="progress-fill blue" style={{ width: `${Math.min(((product.stock || 0) / 20) * 100, 100)}%` }}></div>
               </div>
             </div>
 
             <div style={{ display: 'grid', gridTemplateColumns: window.innerWidth < 480 ? '1fr' : '1fr 1fr', gap: '1.25rem' }}>
               <div>
                 <h4 className="font-poppins" style={{ marginBottom: '0.35rem', fontSize: '0.65rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Manufacturer</h4>
-                <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', fontWeight: '500' }}>{product.brand} Industrial</div>
+                <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', fontWeight: '500' }}>{product.brand || 'Unknown'} Industrial</div>
               </div>
               <div>
                 <h4 className="font-poppins" style={{ marginBottom: '0.35rem', fontSize: '0.65rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Supply Chain</h4>
@@ -161,7 +161,7 @@ const ProductDetailsModal = ({ product, onClose, onInquire }) => {
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '1rem', background: 'rgba(0, 242, 255, 0.03)', borderRadius: '12px', border: '1px dashed var(--accent-blue)' }}>
                <div style={{ width: '60px', height: '60px', background: 'white', padding: '4px', borderRadius: '4px', flexShrink: 0 }}>
-                  <img src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=MERCURY-${product.id}`} alt="QR Code" style={{ width: '100%', height: '100%' }} />
+                  <img src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=MERCURY-${product.id || 'unknown'}`} alt="QR Code" style={{ width: '100%', height: '100%' }} />
                </div>
                <div>
                   <div style={{ fontSize: '0.75rem', fontWeight: '700', color: 'var(--text-primary)' }}>Asset QR Lookup</div>
@@ -180,7 +180,7 @@ const ProductDetailsModal = ({ product, onClose, onInquire }) => {
               <button className="btn btn-outline" style={{ height: '48px', minHeight: 'auto', padding: '0 1rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
                 <Share2 size={18} /> <span className="desktop-only">Share</span>
               </button>
-              <button className="btn btn-outline" style={{ height: '48px', minHeight: 'auto', padding: '0 1rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
+              <button className="btn btn-outline" style={{ height: '48px', minHeight: 'auto', padding: '0 1rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }} onClick={() => onCompare && onCompare(product)}>
                 <LayoutGrid size={18} /> <span className="desktop-only">Compare</span>
               </button>
             </div>
