@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Package, AlertTriangle, IndianRupee, Layers, Activity, TrendingUp, BarChart3, PieChart, Clock, ShieldAlert, ArrowRight } from 'lucide-react';
 import ProductCard from '../components/ProductCard';
 import ProductDetailsModal from '../components/ProductDetailsModal';
-import { safeGet, STORAGE_KEYS } from '../utils/storage';
+import { supabase } from '../lib/supabase';
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -16,32 +16,26 @@ const Home = () => {
   });
 
   useEffect(() => {
-    const loadHomeData = () => {
+    const loadHomeData = async () => {
       try {
-        const stored = safeGet(STORAGE_KEYS.PRODUCTS);
-        const logs = safeGet(STORAGE_KEYS.LOGS);
-        setActivityLogs(logs.slice(0, 5));
+        // Load Activity Logs (Still local for now as it's dashboard specific, or we can leave empty)
+        // We will fetch real products from Supabase
+        const { data: parsedProducts, error } = await supabase
+          .from('products')
+          .select('*')
+          .order('created_at', { ascending: false });
 
-        if (stored) {
-          const parsed = stored;
-          setProducts(parsed);
+        if (error) throw error;
+        
+        if (parsedProducts) {
+          setProducts(parsedProducts);
           
-          const total = parsed.length;
-          const lowStock = parsed.filter(p => p.stock <= 5).length;
-          const value = parsed.reduce((acc, p) => acc + (Number(p.price) * Number(p.stock)), 0);
-          const categories = new Set(parsed.map(p => p.category)).size;
+          const total = parsedProducts.length;
+          const lowStock = parsedProducts.filter(p => p.stock <= 5).length;
+          const value = parsedProducts.reduce((acc, p) => acc + (Number(p.price) * Number(p.stock)), 0);
+          const categories = new Set(parsedProducts.map(p => p.category)).size;
           
           setStats({ total, lowStock, value, categories });
-
-          // Trigger warning toast if low stock exists on load
-          if (lowStock > 0 && products.length === 0) { // Only on initial load
-             // Wait a bit for App to be ready
-             setTimeout(() => {
-                window.dispatchEvent(new CustomEvent('show_toast', { 
-                  detail: { type: 'warning', message: `Attention: ${lowStock} items are below stock threshold.` } 
-                }));
-             }, 1000);
-          }
         }
       } catch (err) {
         console.error("Home data load failed:", err);
@@ -49,12 +43,6 @@ const Home = () => {
     };
 
     loadHomeData();
-    window.addEventListener('activity_updated', loadHomeData);
-    window.addEventListener('storage_updated', loadHomeData);
-    return () => {
-      window.removeEventListener('activity_updated', loadHomeData);
-      window.removeEventListener('storage_updated', loadHomeData);
-    };
   }, []);
 
   const categoryData = products.reduce((acc, p) => {
